@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Volleyball_Utility
 {
-    public partial class Form1 : Form
+    public partial class Email : Form
     {
-        public Form1()
+        public Email()
         {
             InitializeComponent();
-        }
-
-        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Email emailForm = new Email();
-            emailForm.Show();
         }
     }
 }
