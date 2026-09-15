@@ -41,6 +41,7 @@
             this.SenderEmailTextBox.Name = "SenderEmailTextBox";
             this.SenderEmailTextBox.Size = new System.Drawing.Size(240, 29);
             this.SenderEmailTextBox.TabIndex = 0;
+            this.SenderEmailTextBox.TabStop = false;
             // 
             // SenderPasswordTextBox
             // 
@@ -49,6 +50,7 @@
             this.SenderPasswordTextBox.Name = "SenderPasswordTextBox";
             this.SenderPasswordTextBox.Size = new System.Drawing.Size(240, 29);
             this.SenderPasswordTextBox.TabIndex = 1;
+            this.SenderPasswordTextBox.TabStop = false;
             // 
             // VerifyUserEmailButton
             // 
@@ -58,6 +60,7 @@
             this.VerifyUserEmailButton.TabIndex = 2;
             this.VerifyUserEmailButton.Text = "Enter";
             this.VerifyUserEmailButton.UseVisualStyleBackColor = true;
+            this.VerifyUserEmailButton.Click += new System.EventHandler(this.VerifyUserEmailButton_Click);
             // 
             // label1
             // 
@@ -80,7 +83,6 @@
             this.Controls.Add(this.SenderEmailTextBox);
             this.Name = "Email";
             this.Text = "Email";
-            this.Load += new System.EventHandler(this.Email_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

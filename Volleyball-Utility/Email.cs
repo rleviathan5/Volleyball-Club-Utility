@@ -19,9 +19,26 @@ namespace Volleyball_Utility
             WinAPI.SetPlaceholderText(SenderPasswordTextBox, "Password");
         }
 
-        private void Email_Load(object sender, EventArgs e)
+        private void VerifyUserEmailButton_Click(object sender, EventArgs e)
         {
-            
+            DialogResult message = MessageBox.Show(
+                "Are you sure you want to commit this attendance data?",
+                "Caution!",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+                );
+
+            if (message == DialogResult.OK)
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
     }
 }

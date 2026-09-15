@@ -33,8 +33,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.courtScrambleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             this.AcceptNameButton.TabIndex = 1;
             this.AcceptNameButton.Text = "Enter";
             this.AcceptNameButton.UseVisualStyleBackColor = true;
+            this.AcceptNameButton.Click += new System.EventHandler(this.AcceptNameButton_Click);
             // 
             // menuStrip1
             // 
@@ -80,9 +82,15 @@
             // emailToolStripMenuItem
             // 
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.emailToolStripMenuItem.Text = "Email";
             this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
+            // 
+            // courtScrambleToolStripMenuItem
+            // 
+            this.courtScrambleToolStripMenuItem.Name = "courtScrambleToolStripMenuItem";
+            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.courtScrambleToolStripMenuItem.Text = "Court Scramble";
             // 
             // label1
             // 
@@ -94,17 +102,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Attendance Tracker";
             // 
-            // courtScrambleToolStripMenuItem
+            // button1
             // 
-            this.courtScrambleToolStripMenuItem.Name = "courtScrambleToolStripMenuItem";
-            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.courtScrambleToolStripMenuItem.Text = "Court Scramble";
+            this.button1.Location = new System.Drawing.Point(621, 340);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(57, 39);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AcceptNameButton);
             this.Controls.Add(this.NameInputTextBox);
@@ -128,6 +141,7 @@
         private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem courtScrambleToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
