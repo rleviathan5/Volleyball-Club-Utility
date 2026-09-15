@@ -31,10 +31,10 @@ namespace Volleyball_Utility
 
         private void AcceptNameButton_Click(object sender, EventArgs e)
         {
-            if (!names.Add(NameInputTextBox.Text))
+            if (!names.Add(NameInputTextBox.Text)) //displays error if a duplicate name is entered
             {
                 MessageBox.Show(
-                    "This name has already been entered. Try adding the first letter of your surname - 'Niall M'",
+                    "This name has already been entered. \nTry adding the first letter of your surname - 'Niall M'",
                     "Duplicate Name",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -46,14 +46,6 @@ namespace Volleyball_Utility
                 "Success!",
                 MessageBoxButtons.OK
                 );
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            foreach (string name in names)
-            {
-                MessageBox.Show(name);
-            }
         }
     }
 }

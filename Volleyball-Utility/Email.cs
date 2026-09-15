@@ -28,7 +28,7 @@ namespace Volleyball_Utility
                 MessageBoxIcon.Question
                 );
 
-            if (message == DialogResult.OK)
+            if (message == DialogResult.OK) //TODO
             {
                 try
                 {

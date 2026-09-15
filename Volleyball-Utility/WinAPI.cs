@@ -16,8 +16,6 @@ internal static class WinAPI
     //my brain hurts
 
     private const int EM_SETCUEBANNER = 0x1501;
-    private const int WM_KEYDOWN = 0x0100;
-
 
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
     private static extern Int32 SendMessage(
