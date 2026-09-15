@@ -15,6 +15,13 @@ namespace Volleyball_Utility
         public Email()
         {
             InitializeComponent();
+            WinAPI.SetPlaceholderText(SenderEmailTextBox, "Email");
+            WinAPI.SetPlaceholderText(SenderPasswordTextBox, "Password");
+        }
+
+        private void Email_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

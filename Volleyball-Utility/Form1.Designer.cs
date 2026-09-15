@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.NameInput = new System.Windows.Forms.TextBox();
-            this.AcceptName = new System.Windows.Forms.Button();
+            this.NameInputTextBox = new System.Windows.Forms.TextBox();
+            this.AcceptNameButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,25 +38,25 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // NameInput
+            // NameInputTextBox
             // 
-            this.NameInput.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.NameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameInput.Location = new System.Drawing.Point(238, 233);
-            this.NameInput.Multiline = true;
-            this.NameInput.Name = "NameInput";
-            this.NameInput.Size = new System.Drawing.Size(326, 37);
-            this.NameInput.TabIndex = 0;
-            this.NameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NameInputTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NameInputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameInputTextBox.Location = new System.Drawing.Point(238, 223);
+            this.NameInputTextBox.Name = "NameInputTextBox";
+            this.NameInputTextBox.Size = new System.Drawing.Size(326, 47);
+            this.NameInputTextBox.TabIndex = 0;
+            this.NameInputTextBox.TabStop = false;
+            this.NameInputTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // AcceptName
+            // AcceptNameButton
             // 
-            this.AcceptName.Location = new System.Drawing.Point(306, 276);
-            this.AcceptName.Name = "AcceptName";
-            this.AcceptName.Size = new System.Drawing.Size(194, 45);
-            this.AcceptName.TabIndex = 1;
-            this.AcceptName.Text = "Enter";
-            this.AcceptName.UseVisualStyleBackColor = true;
+            this.AcceptNameButton.Location = new System.Drawing.Point(306, 276);
+            this.AcceptNameButton.Name = "AcceptNameButton";
+            this.AcceptNameButton.Size = new System.Drawing.Size(194, 45);
+            this.AcceptNameButton.TabIndex = 1;
+            this.AcceptNameButton.Text = "Enter";
+            this.AcceptNameButton.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -106,8 +106,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.AcceptName);
-            this.Controls.Add(this.NameInput);
+            this.Controls.Add(this.AcceptNameButton);
+            this.Controls.Add(this.NameInputTextBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -121,8 +121,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox NameInput;
-        private System.Windows.Forms.Button AcceptName;
+        private System.Windows.Forms.TextBox NameInputTextBox;
+        private System.Windows.Forms.Button AcceptNameButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;

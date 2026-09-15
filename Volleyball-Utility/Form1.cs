@@ -15,6 +15,7 @@ namespace Volleyball_Utility
         public Form1()
         {
             InitializeComponent();
+            WinAPI.SetPlaceholderText(NameInputTextBox, "Your Name");
         }
 
         private void emailToolStripMenuItem_Click(object sender, EventArgs e)
@@ -22,5 +23,6 @@ namespace Volleyball_Utility
             Email emailForm = new Email();
             emailForm.Show();
         }
+
     }
 }
