@@ -10,16 +10,20 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Volleyball_Utility
 {
     public partial class Email : Form
     {
-        public Email()
+        private HashSet<string> names;
+
+        public Email(HashSet<string> names)
         {
             InitializeComponent();
             WinAPI.SetPlaceholderText(SenderEmailTextBox, "Your personal gmail");
             WinAPI.SetPlaceholderText(ReceiverStuNoTextBox, "Secretary student number");
+            this.names = names; //set current scope hashset equal to hashset declared in form1
         }
 
         private string ReadPasswordFile()
@@ -43,14 +47,30 @@ namespace Volleyball_Utility
             return null;
         }
 
+        private (string subject, string body) ConstructEmail()
+        {
+            DateTime today = DateTime.Now;
+            string subject = "Volleyball Training " + today; // volleyball training dd/mm/yyyy time
+            string body = "";
+
+            foreach (string name in names)
+            {
+                body = string.Concat(body, name + "\n"); //concatenating every name present at training
+            }
+            body = string.Concat(body, "Number of volleyballers present: ", names.Count);
+            return (subject, body);
+        }
+
         private DialogResult SendEmail()
         {
             string password = ReadPasswordFile();
             var senderAddress = new MailAddress(SenderEmailTextBox.Text, "Abertay Volleyball Software");
-            var receiverAddress = new MailAddress(ReceiverStuNoTextBox.Text + "@abertay.ac.uk", "To me");
+            var receiverAddress = new MailAddress(ReceiverStuNoTextBox.Text + "@abertay.ac.uk", "To the current secretary");
             string senderPassword = password;
-            const string subject = "testing from software";
-            const string body = "reply to me if this works pls";
+
+            var emailContent = ConstructEmail();
+            string subject = emailContent.subject;
+            string body = emailContent.body;
 
             try
             {
@@ -71,12 +91,12 @@ namespace Volleyball_Utility
                 {
                     smtp.Send(email);
                 }
-                return DialogResult.OK;
+                return DialogResult.OK; //return ok if email sends
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                return DialogResult.Cancel;
+                return DialogResult.Cancel; //return cancel if email fails
             }
         }
 

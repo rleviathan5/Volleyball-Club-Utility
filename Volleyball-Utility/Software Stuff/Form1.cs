@@ -12,7 +12,7 @@ namespace Volleyball_Utility
 {
     public partial class Form1 : Form
     {
-        HashSet<string> names = new HashSet<string>();
+        private HashSet<string> names = new HashSet<string>();
 
         public Form1()
         {
@@ -25,7 +25,7 @@ namespace Volleyball_Utility
 
         private void emailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Email emailForm = new Email();
+            Email emailForm = new Email(names);
             emailForm.Show();
         }
 
