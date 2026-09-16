@@ -33,7 +33,8 @@ namespace Volleyball_Utility
                 // access Volleyball-Utility/YourGmailPasswordHere
                 string passwordFile = Path.Combine(repoPath, "YourGmailPasswordHere.txt");
 
-                return File.ReadAllText(passwordFile).Trim();
+                return new string (File.ReadAllText(passwordFile) //remove all white space from password file
+                    .Where(c => !char.IsWhiteSpace(c)).ToArray()); //linq looks hacky and is an abomination
             }
             catch(Exception ex) 
             {
@@ -42,7 +43,7 @@ namespace Volleyball_Utility
             return null;
         }
 
-        private void SendEmail()
+        private DialogResult SendEmail()
         {
             string password = ReadPasswordFile();
             var senderAddress = new MailAddress(SenderEmailTextBox.Text, "Abertay Volleyball Software");
@@ -70,11 +71,12 @@ namespace Volleyball_Utility
                 {
                     smtp.Send(email);
                 }
+                return DialogResult.OK;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                return;
+                return DialogResult.Cancel;
             }
         }
 
@@ -89,8 +91,14 @@ namespace Volleyball_Utility
 
             if (message == DialogResult.OK) //TODO
             {
-                SendEmail();
-                MessageBox.Show("Successfully sent email to secretary", "Success!");
+                if (SendEmail() == DialogResult.OK)
+                {
+                    MessageBox.Show("Successfully sent email to secretary", "Success!");
+                }
+                else
+                {
+                    return;
+                }
             }
         }
     }
