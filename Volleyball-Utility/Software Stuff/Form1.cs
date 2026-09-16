@@ -42,6 +42,7 @@ namespace Volleyball_Utility
                 return;
             }
 
+            NameInputTextBox.Clear();
             MessageBox.Show("Thanks for coming", 
                 "Success!",
                 MessageBoxButtons.OK

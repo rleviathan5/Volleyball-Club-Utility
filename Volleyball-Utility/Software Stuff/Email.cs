@@ -61,7 +61,7 @@ namespace Volleyball_Utility
             return (subject, body);
         }
 
-        private DialogResult SendEmail()
+        private DialogResult SendEmail() //TODO: add redundant email to university club email too
         {
             string password = ReadPasswordFile();
             var senderAddress = new MailAddress(SenderEmailTextBox.Text, "Abertay Volleyball Software");
@@ -109,7 +109,7 @@ namespace Volleyball_Utility
                 MessageBoxIcon.Question
                 );
 
-            if (message == DialogResult.OK) //TODO
+            if (message == DialogResult.OK)
             {
                 if (SendEmail() == DialogResult.OK)
                 {
