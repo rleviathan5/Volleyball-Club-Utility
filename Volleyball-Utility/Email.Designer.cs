@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.SenderEmailTextBox = new System.Windows.Forms.TextBox();
-            this.SenderPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.ReceiverStuNoTextBox = new System.Windows.Forms.TextBox();
             this.VerifyUserEmailButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -43,14 +43,14 @@
             this.SenderEmailTextBox.TabIndex = 0;
             this.SenderEmailTextBox.TabStop = false;
             // 
-            // SenderPasswordTextBox
+            // ReceiverStuNoTextBox
             // 
-            this.SenderPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SenderPasswordTextBox.Location = new System.Drawing.Point(140, 132);
-            this.SenderPasswordTextBox.Name = "SenderPasswordTextBox";
-            this.SenderPasswordTextBox.Size = new System.Drawing.Size(240, 29);
-            this.SenderPasswordTextBox.TabIndex = 1;
-            this.SenderPasswordTextBox.TabStop = false;
+            this.ReceiverStuNoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReceiverStuNoTextBox.Location = new System.Drawing.Point(140, 132);
+            this.ReceiverStuNoTextBox.Name = "ReceiverStuNoTextBox";
+            this.ReceiverStuNoTextBox.Size = new System.Drawing.Size(240, 29);
+            this.ReceiverStuNoTextBox.TabIndex = 1;
+            this.ReceiverStuNoTextBox.TabStop = false;
             // 
             // VerifyUserEmailButton
             // 
@@ -79,7 +79,7 @@
             this.ClientSize = new System.Drawing.Size(538, 268);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.VerifyUserEmailButton);
-            this.Controls.Add(this.SenderPasswordTextBox);
+            this.Controls.Add(this.ReceiverStuNoTextBox);
             this.Controls.Add(this.SenderEmailTextBox);
             this.Name = "Email";
             this.Text = "Email";
@@ -91,7 +91,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox SenderEmailTextBox;
-        private System.Windows.Forms.TextBox SenderPasswordTextBox;
+        private System.Windows.Forms.TextBox ReceiverStuNoTextBox;
         private System.Windows.Forms.Button VerifyUserEmailButton;
         private System.Windows.Forms.Label label1;
     }
