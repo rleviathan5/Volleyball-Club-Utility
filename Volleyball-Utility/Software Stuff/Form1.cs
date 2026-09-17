@@ -18,8 +18,8 @@ namespace Volleyball_Utility
         {
             InitializeComponent();
             WinAPI.SetPlaceholderText(NameInputTextBox, "Your Name");
-            this.MaximizeBox = false; //remove maximze button
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // prevent window resizing
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Volleyball Utility Tool";
         }
 
