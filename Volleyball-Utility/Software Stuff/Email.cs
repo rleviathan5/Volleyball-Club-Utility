@@ -18,7 +18,6 @@ namespace Volleyball_Utility
     public partial class Email : Form
     {
         private HashSet<string> names;
-
         public Email(HashSet<string> names)
         {
             InitializeComponent();
@@ -27,6 +26,7 @@ namespace Volleyball_Utility
             this.names = names; //set current scope hashset equal to hashset declared in form1
             this.MaximizeBox = false;
         }
+
 
         //email construction functions
         #region
@@ -105,6 +105,47 @@ namespace Volleyball_Utility
         }
         #endregion
 
+
+        private void VerifyUserEmailButton_Click(object sender, EventArgs e)
+        {
+            if (!VerifyInputData()) return; //if a check fails and a false bool is received, break the function
+           
+            DialogResult message = MessageBox.Show(
+                "Are you sure you want to commit this attendance data?",
+                "Caution!",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+                );
+
+            if (message == DialogResult.OK)
+            {
+                if (SendEmail()) //if email is successfull 
+                {
+                    MessageBox.Show("Successfully sent email to secretary", "Success!");
+                }
+                else return;
+            }
+        }
+
+
+        //extracted/misc functions
+        #region
+        private void SenderEmailTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                VerifyUserEmailButton_Click(this, new EventArgs());
+            }
+        }
+
+        private void ReceiverStuNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                VerifyUserEmailButton_Click(this, new EventArgs());
+            }
+        }
+
         private bool VerifyInputData()
         {
             string gmailRegex = @"^[a-z0-9]+(?!.*(?:\+{2,}|-{2,}|\.{2,}))(?:[.+-]?[a-z0-9])*@gmail\.com$";
@@ -127,42 +168,6 @@ namespace Volleyball_Utility
             }
             return true;
         }
-
-        private void VerifyUserEmailButton_Click(object sender, EventArgs e)
-        {
-            if (!VerifyInputData()) return; //if a check fails and a false bool is received, break the function
-           
-            DialogResult message = MessageBox.Show(
-                "Are you sure you want to commit this attendance data?",
-                "Caution!",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question
-                );
-
-            if (message == DialogResult.OK)
-            {
-                if (SendEmail())
-                {
-                    MessageBox.Show("Successfully sent email to secretary", "Success!");
-                }
-                else return;
-            }
-        }
-
-        private void SenderEmailTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                VerifyUserEmailButton_Click(this, new EventArgs());
-            }
-        }
-
-        private void ReceiverStuNoTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                VerifyUserEmailButton_Click(this, new EventArgs());
-            }
-        }
+        #endregion
     }
 }
