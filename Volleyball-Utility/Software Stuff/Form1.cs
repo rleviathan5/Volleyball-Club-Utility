@@ -48,5 +48,13 @@ namespace Volleyball_Utility
                 MessageBoxButtons.OK
                 );
         }
+
+        private void NameInputTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter )
+            {
+                AcceptNameButton_Click(this, new EventArgs());
+            }
+        }
     }
 }

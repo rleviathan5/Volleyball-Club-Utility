@@ -48,6 +48,7 @@
             this.NameInputTextBox.TabIndex = 0;
             this.NameInputTextBox.TabStop = false;
             this.NameInputTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NameInputTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameInputTextBox_KeyDown);
             // 
             // AcceptNameButton
             // 
