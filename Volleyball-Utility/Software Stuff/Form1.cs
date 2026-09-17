@@ -31,7 +31,7 @@ namespace Volleyball_Utility
 
         private void AcceptNameButton_Click(object sender, EventArgs e)
         {
-            if (!names.Add(NameInputTextBox.Text)) //displays error if a duplicate name is entered
+            if (!names.Add(NameInputTextBox.Text.Trim())) //displays error if a duplicate name is entered
             {
                 MessageBox.Show(
                     "This name has already been entered. \nTry adding the first letter of your surname - 'Niall M'",
