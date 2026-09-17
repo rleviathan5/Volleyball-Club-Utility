@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Mail;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 namespace Volleyball_Utility
 {
@@ -24,8 +25,11 @@ namespace Volleyball_Utility
             WinAPI.SetPlaceholderText(SenderEmailTextBox, "Your personal gmail");
             WinAPI.SetPlaceholderText(ReceiverStuNoTextBox, "Secretary student number");
             this.names = names; //set current scope hashset equal to hashset declared in form1
+            this.MaximizeBox = false;
         }
 
+        //email construction functions
+        #region
         private string ReadPasswordFile()
         {
             try
@@ -61,7 +65,7 @@ namespace Volleyball_Utility
             return (subject, body);
         }
 
-        private DialogResult SendEmail() //TODO: add redundant email to university club email too
+        private bool SendEmail() //TODO: add redundant email to university club email too
         {
             string password = ReadPasswordFile();
             var senderAddress = new MailAddress(SenderEmailTextBox.Text, "Abertay Volleyball Software");
@@ -91,17 +95,43 @@ namespace Volleyball_Utility
                 {
                     smtp.Send(email);
                 }
-                return DialogResult.OK; //return ok if email sends
+                return true; //return ok if email sends
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                return DialogResult.Cancel; //return cancel if email fails
+                return false; //return cancel if email fails
             }
+        }
+        #endregion
+
+        private bool VerifyInputData()
+        {
+            string gmailRegex = @"^[a-z0-9]+(?!.*(?:\+{2,}|-{2,}|\.{2,}))(?:[.+-]?[a-z0-9])*@gmail\.com$";
+            string studentNumberRegex = @"^[1-9][0-9]{6}$";
+
+            if (string.IsNullOrEmpty(SenderEmailTextBox.Text) || string.IsNullOrEmpty(ReceiverStuNoTextBox.Text))
+            {
+                MessageBox.Show("Please fill out all information fields", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!Regex.IsMatch(SenderEmailTextBox.Text, gmailRegex, RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Please enter a valid gmail address", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if ((!Regex.IsMatch(ReceiverStuNoTextBox.Text, studentNumberRegex, RegexOptions.IgnoreCase)))
+            {
+                MessageBox.Show("Please enter a valid abertay student number", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
 
         private void VerifyUserEmailButton_Click(object sender, EventArgs e)
         {
+            if (!VerifyInputData()) return; //if a check fails and a false bool is received, break the function
+           
             DialogResult message = MessageBox.Show(
                 "Are you sure you want to commit this attendance data?",
                 "Caution!",
@@ -111,14 +141,27 @@ namespace Volleyball_Utility
 
             if (message == DialogResult.OK)
             {
-                if (SendEmail() == DialogResult.OK)
+                if (SendEmail())
                 {
                     MessageBox.Show("Successfully sent email to secretary", "Success!");
                 }
-                else
-                {
-                    return;
-                }
+                else return;
+            }
+        }
+
+        private void SenderEmailTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                VerifyUserEmailButton_Click(this, new EventArgs());
+            }
+        }
+
+        private void ReceiverStuNoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                VerifyUserEmailButton_Click(this, new EventArgs());
             }
         }
     }

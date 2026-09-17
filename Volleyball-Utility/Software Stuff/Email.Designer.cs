@@ -42,6 +42,7 @@
             this.SenderEmailTextBox.Size = new System.Drawing.Size(240, 29);
             this.SenderEmailTextBox.TabIndex = 0;
             this.SenderEmailTextBox.TabStop = false;
+            this.SenderEmailTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SenderEmailTextBox_KeyDown);
             // 
             // ReceiverStuNoTextBox
             // 
@@ -51,6 +52,7 @@
             this.ReceiverStuNoTextBox.Size = new System.Drawing.Size(240, 29);
             this.ReceiverStuNoTextBox.TabIndex = 1;
             this.ReceiverStuNoTextBox.TabStop = false;
+            this.ReceiverStuNoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReceiverStuNoTextBox_KeyDown);
             // 
             // VerifyUserEmailButton
             // 
