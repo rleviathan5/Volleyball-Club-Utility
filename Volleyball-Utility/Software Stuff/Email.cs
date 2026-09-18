@@ -69,7 +69,8 @@ namespace Volleyball_Utility
         {
             string password = ReadPasswordFile();
             var senderAddress = new MailAddress(SenderEmailTextBox.Text, "Abertay Volleyball Software");
-            var receiverAddress = new MailAddress(ReceiverStuNoTextBox.Text + "@abertay.ac.uk", "To the current secretary");
+            var receiverAddress1 = new MailAddress(ReceiverStuNoTextBox.Text + "@abertay.ac.uk", "To current secretary");
+            var receieverAddress2 = new MailAddress("volleyball@abertay.ac.uk", "To shared mailbox");
             string senderPassword = password;
 
             var emailContent = ConstructEmail();
@@ -87,13 +88,16 @@ namespace Volleyball_Utility
                     Credentials = new NetworkCredential(senderAddress.Address, senderPassword),
                     Timeout = 20000
                 };
-                using (var email = new MailMessage(senderAddress, receiverAddress)
+                foreach (var receiver in new[] {receiverAddress1, receieverAddress2}) //sending 2 emails with same contents
                 {
-                    Subject = subject,
-                    Body = body
-                })
-                {
-                    smtp.Send(email);
+                    using (var email = new MailMessage(senderAddress, receiver)
+                    {
+                        Subject = subject,
+                        Body = body
+                    })
+                    {
+                        smtp.Send(email);
+                    }
                 }
                 return true; //return ok if email sends
             }
