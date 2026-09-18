@@ -65,12 +65,12 @@ namespace Volleyball_Utility
             return (subject, body);
         }
 
-        private bool SendEmail() //TODO: add redundant email to university club email too
+        private bool SendEmail() //TODO: test shared mailbox email
         {
             string password = ReadPasswordFile();
             var senderAddress = new MailAddress(SenderEmailTextBox.Text, "Abertay Volleyball Software");
-            var receiverAddress1 = new MailAddress(ReceiverStuNoTextBox.Text + "@abertay.ac.uk", "To current secretary");
-            var receieverAddress2 = new MailAddress("volleyball@abertay.ac.uk", "To shared mailbox");
+            var receiverAddress1 = new MailAddress(ReceiverStuNoTextBox.Text + "@abertay.ac.uk", "Current Secretary");
+            var receieverAddress2 = new MailAddress("volleyball@abertay.ac.uk", "Shared Mailbox");
             string senderPassword = password;
 
             var emailContent = ConstructEmail();
@@ -110,7 +110,7 @@ namespace Volleyball_Utility
         #endregion
 
 
-        private void VerifyUserEmailButton_Click(object sender, EventArgs e)
+        private void VerifyUserEmailButton_Click(object sender, EventArgs e) //TODO: add tooltips to textboxes
         {
             if (!VerifyInputData()) return; //if a check fails and a false bool is received, break the function
            
