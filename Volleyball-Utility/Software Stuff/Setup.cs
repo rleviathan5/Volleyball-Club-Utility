@@ -18,12 +18,11 @@ namespace Volleyball_Utility
     public partial class Setup : Form
     {
         private HashSet<string> names;
-        public Setup(HashSet<string> names)
+        public Setup()
         {
             InitializeComponent();
             WinAPI.SetPlaceholderText(SenderEmailTextBox, "Your personal gmail");
             WinAPI.SetPlaceholderText(ReceiverStuNoTextBox, "Secretary student number");
-            this.names = names; //set current scope hashset equal to hashset declared in form1
             this.MaximizeBox = false;
         }
 

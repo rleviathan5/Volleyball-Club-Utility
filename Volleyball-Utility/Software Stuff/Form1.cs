@@ -23,7 +23,7 @@ namespace Volleyball_Utility
             this.Text = "Volleyball Utility Tool";
         }
 
-        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
+        private void emailToolStripMenuItem_Click(object sender, EventArgs e) //TODO: change to backend email functionality, no form involved
         {
             //Setup emailForm = new Setup(names);
             //emailForm.Show();
