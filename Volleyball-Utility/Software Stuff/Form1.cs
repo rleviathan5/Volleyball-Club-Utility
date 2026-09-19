@@ -25,8 +25,8 @@ namespace Volleyball_Utility
 
         private void emailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Email emailForm = new Email(names);
-            emailForm.Show();
+            //Setup emailForm = new Setup(names);
+            //emailForm.Show();
         }
 
         private void AcceptNameButton_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace Volleyball_Utility
 {
-    partial class Email
+    partial class Setup
     {
         /// <summary>
         /// Required designer variable.

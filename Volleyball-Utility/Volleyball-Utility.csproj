@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Software Stuff\Email.cs">
+    <Compile Include="Software Stuff\Setup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Software Stuff\Email.Designer.cs">
-      <DependentUpon>Email.cs</DependentUpon>
+    <Compile Include="Software Stuff\Setup.Designer.cs">
+      <DependentUpon>Setup.cs</DependentUpon>
     </Compile>
     <Compile Include="Software Stuff\Form1.cs">
       <SubType>Form</SubType>
@@ -61,8 +61,8 @@
     <Compile Include="Software Stuff\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Software Stuff\WinAPI.cs" />
-    <EmbeddedResource Include="Software Stuff\Email.resx">
-      <DependentUpon>Email.cs</DependentUpon>
+    <EmbeddedResource Include="Software Stuff\Setup.resx">
+      <DependentUpon>Setup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Software Stuff\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

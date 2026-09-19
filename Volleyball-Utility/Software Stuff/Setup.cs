@@ -15,10 +15,10 @@ using System.Text.RegularExpressions;
 
 namespace Volleyball_Utility
 {
-    public partial class Email : Form
+    public partial class Setup : Form
     {
         private HashSet<string> names;
-        public Email(HashSet<string> names)
+        public Setup(HashSet<string> names)
         {
             InitializeComponent();
             WinAPI.SetPlaceholderText(SenderEmailTextBox, "Your personal gmail");
