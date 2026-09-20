@@ -10,6 +10,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Volleyball_Utility.Match_Making;
 
 namespace Volleyball_Utility
 {
@@ -20,7 +21,7 @@ namespace Volleyball_Utility
         public Form1()
         {
             InitializeComponent();
-            WinAPI.SetPlaceholderText(NameInputTextBox, "Your Name");
+            WinAPI.SetPlaceholderText(NameInputTextBox, "Your First Name");
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Volleyball Utility Tool";
@@ -76,7 +77,8 @@ namespace Volleyball_Utility
 
         private void courtScrambleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var matchForm = new MatchMaking();
+            matchForm.Show();
         }
         #endregion
 

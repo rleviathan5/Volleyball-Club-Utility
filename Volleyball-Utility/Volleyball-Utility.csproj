@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Match Making\MatchMaking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Match Making\MatchMaking.Designer.cs">
+      <DependentUpon>MatchMaking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Setup Form\Setup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     <Compile Include="Misc\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Misc\WinAPI.cs" />
+    <EmbeddedResource Include="Match Making\MatchMaking.resx">
+      <DependentUpon>MatchMaking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setup Form\Setup.resx">
       <DependentUpon>Setup.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,7 +100,10 @@
     <None Include="Misc\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Match Making\" />
+    <None Include="Resources\volleyball_court%281%29.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volleyball%282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
