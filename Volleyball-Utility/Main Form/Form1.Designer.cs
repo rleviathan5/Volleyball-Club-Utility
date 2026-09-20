@@ -35,6 +35,8 @@
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.courtScrambleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.TeamPlayerCheckBox = new System.Windows.Forms.CheckBox();
+            this.NotTeamPlayerCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             // 
             // AcceptNameButton
             // 
-            this.AcceptNameButton.Location = new System.Drawing.Point(306, 276);
+            this.AcceptNameButton.Location = new System.Drawing.Point(303, 299);
             this.AcceptNameButton.Name = "AcceptNameButton";
             this.AcceptNameButton.Size = new System.Drawing.Size(194, 45);
             this.AcceptNameButton.TabIndex = 1;
@@ -103,11 +105,35 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Attendance Tracker";
             // 
+            // TeamPlayerCheckBox
+            // 
+            this.TeamPlayerCheckBox.AutoSize = true;
+            this.TeamPlayerCheckBox.Location = new System.Drawing.Point(238, 276);
+            this.TeamPlayerCheckBox.Name = "TeamPlayerCheckBox";
+            this.TeamPlayerCheckBox.Size = new System.Drawing.Size(85, 17);
+            this.TeamPlayerCheckBox.TabIndex = 4;
+            this.TeamPlayerCheckBox.Text = "Team Player";
+            this.TeamPlayerCheckBox.UseVisualStyleBackColor = true;
+            this.TeamPlayerCheckBox.CheckedChanged += new System.EventHandler(this.TeamPlayerCheckBox_CheckedChanged);
+            // 
+            // NotTeamPlayerCheckBox
+            // 
+            this.NotTeamPlayerCheckBox.AutoSize = true;
+            this.NotTeamPlayerCheckBox.Location = new System.Drawing.Point(459, 276);
+            this.NotTeamPlayerCheckBox.Name = "NotTeamPlayerCheckBox";
+            this.NotTeamPlayerCheckBox.Size = new System.Drawing.Size(105, 17);
+            this.NotTeamPlayerCheckBox.TabIndex = 5;
+            this.NotTeamPlayerCheckBox.Text = "Not Team Player";
+            this.NotTeamPlayerCheckBox.UseVisualStyleBackColor = true;
+            this.NotTeamPlayerCheckBox.CheckedChanged += new System.EventHandler(this.NotTeamPlayerCheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NotTeamPlayerCheckBox);
+            this.Controls.Add(this.TeamPlayerCheckBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AcceptNameButton);
             this.Controls.Add(this.NameInputTextBox);
@@ -131,6 +157,8 @@
         private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem courtScrambleToolStripMenuItem;
+        private System.Windows.Forms.CheckBox TeamPlayerCheckBox;
+        private System.Windows.Forms.CheckBox NotTeamPlayerCheckBox;
     }
 }
 

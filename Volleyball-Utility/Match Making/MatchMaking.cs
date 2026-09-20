@@ -12,10 +12,12 @@ namespace Volleyball_Utility.Match_Making
 {
     public partial class MatchMaking : Form
     {
-        public MatchMaking()
+        private Dictionary<string, int> names; 
+        public MatchMaking(Dictionary<string, int> names)
         {
             InitializeComponent();
-            Team1TextBox.Lines = new string[] {"anastasia", "niall", "duaa"};
+            Team1TextBox.Lines = new string[] {""};
+            this.names = names;
         }
     }
 }

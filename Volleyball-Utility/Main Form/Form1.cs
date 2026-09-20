@@ -16,7 +16,7 @@ namespace Volleyball_Utility
 {
     public partial class Form1 : Form
     {
-        private HashSet<string> names = new HashSet<string>();
+        private Dictionary<string, int> names = new Dictionary<string, int>();
 
         public Form1()
         {
@@ -49,7 +49,9 @@ namespace Volleyball_Utility
 
         private void AcceptNameButton_Click(object sender, EventArgs e)
         {
-            if (!names.Add(NameInputTextBox.Text.Trim())) //displays error if a duplicate name is entered
+            int playerID = CheckForTeamPlayer();
+            string name = NameInputTextBox.Text.Trim();
+            if (names.ContainsKey(name)) //displays error if a duplicate name is entered
             {
                 MessageBox.Show(
                     "This name has already been entered. \nTry adding the first letter of your surname - 'Niall M'",
@@ -59,6 +61,7 @@ namespace Volleyball_Utility
                     );
                 return;
             }
+            names.Add(name, playerID);
 
             NameInputTextBox.Clear();
             MessageBox.Show("Thanks for coming",
@@ -77,7 +80,7 @@ namespace Volleyball_Utility
 
         private void courtScrambleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var matchForm = new MatchMaking();
+            var matchForm = new MatchMaking(names);
             matchForm.Show();
         }
         #endregion
@@ -158,5 +161,23 @@ namespace Volleyball_Utility
         }
         #endregion
 
+        private void TeamPlayerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NotTeamPlayerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private int CheckForTeamPlayer()
+        {
+            if (TeamPlayerCheckBox.Checked)
+            {
+                return 1;
+            }
+            else return 2;
+        }
     }
 }
