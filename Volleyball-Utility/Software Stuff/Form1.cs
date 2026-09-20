@@ -26,11 +26,24 @@ namespace Volleyball_Utility
             this.Text = "Volleyball Utility Tool";
         }
 
+
         //event driven functions
         #region
         private void emailToolStripMenuItem_Click(object sender, EventArgs e) //TODO: change to backend email functionality, no form involved
         {
-            //function return true if email sent
+            DialogResult result;
+            result = MessageBox.Show("Are you sure you want to commit this session data?",
+                "Warning!",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                if (SendEmail())
+                {
+                    MessageBox.Show("Email successfully sent to secretary", "Success!");
+                }
+            }
         }
 
         private void AcceptNameButton_Click(object sender, EventArgs e)
@@ -61,33 +74,35 @@ namespace Volleyball_Utility
             }
         }
 
+        private void courtScrambleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
 
         //email functions
         #region
-        private string ReadPasswordFile()
+        private (string gmail, string password, string studentNo) ReadPasswordFile()
         {
+            string gmail = "";
+            string password = "";
+            string studentNo = "";
             try
             {
-                // backstep 2 levels in the repo
-                // Volleyball-Utility\bin\Release -> Volleyball-Utility
-                string repoPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"../../"));
-
-                // access Volleyball-Utility/YourGmailPasswordHere
-                string passwordFile = Path.Combine(repoPath, "YourGmailPasswordHere.txt");
-
-                return new string(File.ReadAllText(passwordFile) //remove all white space from password file
-                    .Where(c => !char.IsWhiteSpace(c)).ToArray()); //linq looks hacky and is an abomination
+                string[] lines = File.ReadAllLines("info.txt");
+                gmail = lines[0].Trim();
+                password = lines[1].Trim();
+                studentNo = lines[2].Trim();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            return null;
+            return (gmail, password, studentNo);
         }
 
-        private (string subject, string body) ConstructEmail() //pass hashset
+        private (string subject, string body) ConstructEmail()
         {
             DateTime today = DateTime.Now;
             string subject = "Volleyball Training " + today; // volleyball training dd/mm/yyyy time
@@ -101,17 +116,13 @@ namespace Volleyball_Utility
             return (subject, body);
         }
 
-        private bool SendEmail() //TODO: test shared mailbox email
+        private bool SendEmail()
         {
-            string password = ReadPasswordFile();
-            var senderAddress = new MailAddress("", "Abertay Volleyball Software");
-            var receiverAddress1 = new MailAddress("" + "@abertay.ac.uk", "Current Secretary");
-            var receieverAddress2 = new MailAddress("volleyball@abertay.ac.uk", "Shared Mailbox");
-            string senderPassword = password;
-
-            var emailContent = ConstructEmail();
-            string subject = emailContent.subject;
-            string body = emailContent.body;
+            var (gmail, password, studentNo) = ReadPasswordFile();
+            var senderAddress = new MailAddress(gmail, "Abertay Volleyball Software");
+            var receiverAddress1 = new MailAddress(studentNo + "@abertay.ac.uk", "Secretary");
+            var receieverAddress2 = new MailAddress("volleyball@abertay.ac.uk", "Abertay");
+            var (subject, body) = ConstructEmail();
 
             try
             {
@@ -121,7 +132,7 @@ namespace Volleyball_Utility
                     Port = 587,
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Credentials = new NetworkCredential(senderAddress.Address, senderPassword),
+                    Credentials = new NetworkCredential(senderAddress.Address, password),
                     Timeout = 20000
                 };
                 foreach (var receiver in new[] { receiverAddress1, receieverAddress2 }) //sending 2 emails with same contents
@@ -143,7 +154,7 @@ namespace Volleyball_Utility
                 return false; //return cancel if email fails
             }
         }
-
         #endregion
+
     }
 }

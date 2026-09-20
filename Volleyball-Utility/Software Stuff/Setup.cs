@@ -111,7 +111,5 @@ namespace Volleyball_Utility
             }
         }
         #endregion
-
-
     }
 }

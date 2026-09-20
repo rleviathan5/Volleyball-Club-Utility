@@ -82,15 +82,16 @@
             // emailToolStripMenuItem
             // 
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.emailToolStripMenuItem.Text = "Email";
             this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
             // 
             // courtScrambleToolStripMenuItem
             // 
             this.courtScrambleToolStripMenuItem.Name = "courtScrambleToolStripMenuItem";
-            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.courtScrambleToolStripMenuItem.Text = "Court Scramble";
+            this.courtScrambleToolStripMenuItem.Click += new System.EventHandler(this.courtScrambleToolStripMenuItem_Click);
             // 
             // label1
             // 
