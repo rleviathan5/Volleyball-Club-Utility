@@ -41,8 +41,7 @@ namespace Volleyball_Utility
             {
                 using (var setupForm = new Setup())
                     result = setupForm.ShowDialog(); //program pauses here 
-                if (result != DialogResult.OK) Application.Exit(); 
-                return;
+                if (result != DialogResult.OK) return;
             }
             Application.Run(new Form1());
         }
