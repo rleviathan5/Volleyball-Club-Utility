@@ -59,25 +59,5 @@ namespace Volleyball_Utility.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap volleyball_2_ {
-            get {
-                object obj = ResourceManager.GetObject("volleyball(2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap volleyball_court_1_ {
-            get {
-                object obj = ResourceManager.GetObject("volleyball_court(1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

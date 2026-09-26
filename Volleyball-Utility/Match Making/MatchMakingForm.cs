@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Volleyball_Utility.Match_Making
 {
-    public partial class MatchMaking : Form
+    public partial class MatchMakingForm : Form
     {
         private Dictionary<string, int> names; 
-        public MatchMaking(Dictionary<string, int> names)
+        public MatchMakingForm(Dictionary<string, int> names)
         {
             InitializeComponent();
             Team1TextBox.Lines = new string[] {""};
