@@ -27,10 +27,17 @@ namespace Volleyball_Utility
             this.Text = "Volleyball Utility Tool";
         }
 
+        private void courtScrambleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var matchForm = new MatchMaking(names);
+            matchForm.Show();
+        }
 
-        //event driven functions
+
+
+        //essential functions for main form
         #region
-        private void emailToolStripMenuItem_Click(object sender, EventArgs e) //TODO: change to backend email functionality, no form involved
+        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result;
             result = MessageBox.Show("Are you sure you want to commit this session data?",
@@ -51,6 +58,27 @@ namespace Volleyball_Utility
         {
             int playerID = CheckForTeamPlayer();
             string name = NameInputTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show(
+                    "Please enter your name",
+                    "Missing Info",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
+            if (playerID == 0) //if no textbox ticked
+            {
+                MessageBox.Show(
+                    "Please specify whether you are/aren't on the team",
+                    "Missing Info",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return;
+            }
             if (names.ContainsKey(name)) //displays error if a duplicate name is entered
             {
                 MessageBox.Show(
@@ -61,30 +89,18 @@ namespace Volleyball_Utility
                     );
                 return;
             }
+            
             names.Add(name, playerID);
-
             NameInputTextBox.Clear();
+            TeamPlayerCheckBox.Checked = false;
+            NotTeamPlayerCheckBox.Checked = false;
+
             MessageBox.Show("Thanks for coming",
                 "Success!",
                 MessageBoxButtons.OK
                 );
         }
-
-        private void NameInputTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                AcceptNameButton_Click(this, new EventArgs());
-            }
-        }
-
-        private void courtScrambleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var matchForm = new MatchMaking(names);
-            matchForm.Show();
-        }
         #endregion
-
 
         //email functions
         #region
@@ -110,12 +126,12 @@ namespace Volleyball_Utility
         private (string subject, string body) ConstructEmail()
         {
             DateTime today = DateTime.Now;
-            string subject = "Volleyball Training " + today; // volleyball training dd/mm/yyyy time
+            string subject = "Volleyball Training " + today; // dd/mm/yyyy time
             string body = "";
 
-            foreach (string name in names)
+            foreach (var item in names)
             {
-                body = string.Concat(body, name + "\n"); //concatenating every name present at training
+                body = string.Concat(body, item.Key + "\n"); //concatenating every name present at training
             }
             body = string.Concat(body, "Number of volleyballers present: ", names.Count);
             return (subject, body);
@@ -151,24 +167,32 @@ namespace Volleyball_Utility
                         smtp.Send(email);
                     }
                 }
-                return true; //return ok if email sends
+                return true; //return true if email sends
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                return false; //return cancel if email fails
+                return false; //return false if email fails
             }
         }
         #endregion
 
+        //misc/ui/utility
+        #region
         private void TeamPlayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (TeamPlayerCheckBox.Checked)
+            {
+                NotTeamPlayerCheckBox.Checked = false;
+            }
         }
 
         private void NotTeamPlayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (NotTeamPlayerCheckBox.Checked)
+            {
+                TeamPlayerCheckBox.Checked = false;
+            }
         }
 
         private int CheckForTeamPlayer()
@@ -177,7 +201,36 @@ namespace Volleyball_Utility
             {
                 return 1;
             }
-            else return 2;
+            if (NotTeamPlayerCheckBox.Checked)
+            {
+                return 2;
+            }
+            return 0;
         }
+
+        private void NameInputTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AcceptNameButton_Click(this, new EventArgs());
+            }
+        }
+
+        private void NotTeamPlayerCheckBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AcceptNameButton_Click(this, new EventArgs());
+            }
+        }
+
+        private void TeamPlayerCheckBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AcceptNameButton_Click(this, new EventArgs());
+            }
+        }
+        #endregion
     }
 }
