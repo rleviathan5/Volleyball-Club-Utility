@@ -43,7 +43,7 @@ namespace Volleyball_Utility
             }
         }
 
-        private void VerifyUserEmailButton_Click(object sender, EventArgs e) //TODO: add tooltips to textboxes
+        private void VerifyUserEmailButton_Click(object sender, EventArgs e)
         {
             if (!VerifyInputData()) return; //if a check fails and a false bool is received, break the function
            

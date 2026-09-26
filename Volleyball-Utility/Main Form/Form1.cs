@@ -24,6 +24,7 @@ namespace Volleyball_Utility
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Volleyball Utility Tool";
+            LoadLocalBackup();
         }
 
         private void AcceptNameButton_Click(object sender, EventArgs e)
@@ -63,6 +64,7 @@ namespace Volleyball_Utility
             }
             
             names.Add(name, playerID);
+            WriteToLocalBackup(name, playerID); //this code is SPECIFICALLY because our president butchered the software one time
             NameInputTextBox.Clear();
             TeamPlayerCheckBox.Checked = false;
             NotTeamPlayerCheckBox.Checked = false;
@@ -86,6 +88,11 @@ namespace Volleyball_Utility
                 if (SendEmail())
                 {
                     MessageBox.Show("Email successfully sent to secretary", "Success!");
+
+                    if(File.Exists("temp.txt"))
+                    {
+                        File.Delete("temp.txt");
+                    }
                 }
             }
         }
