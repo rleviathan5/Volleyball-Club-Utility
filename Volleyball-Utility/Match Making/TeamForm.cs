@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Volleyball_Utility.Match_Making
+namespace Volleyball_Utility
 {
-    public partial class MatchMakingForm : Form
+    public partial class TeamForm : Form
     {
         private Dictionary<string, int> names; 
-        public MatchMakingForm(Dictionary<string, int> names)
+        public TeamForm(Dictionary<string, int> names)
         {
             InitializeComponent();
             Team1TextBox.Lines = new string[] {""};

@@ -1,6 +1,6 @@
 ﻿namespace Volleyball_Utility
 {
-    partial class Setup
+    partial class SetupForm
     {
         /// <summary>
         /// Required designer variable.

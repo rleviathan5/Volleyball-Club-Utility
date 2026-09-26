@@ -15,9 +15,9 @@ using System.Text.RegularExpressions;
 
 namespace Volleyball_Utility
 {
-    public partial class Setup : Form
+    public partial class SetupForm : Form
     {
-        public Setup()
+        public SetupForm()
         {
             InitializeComponent();
             WinAPI.SetPlaceholderText(GmailTextBox, "Your personal gmail");
@@ -62,24 +62,6 @@ namespace Volleyball_Utility
             }
         }
 
-        //extracted/misc functions
-        #region
-        private void SenderEmailTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                VerifyUserEmailButton_Click(this, new EventArgs());
-            }
-        }
-
-        private void ReceiverStuNoTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                VerifyUserEmailButton_Click(this, new EventArgs());
-            }
-        }
-
         private bool VerifyInputData() //TODO: add shard app pwd verification
         {
             string gmailRegex = @"^[a-z0-9]+(?!.*(?:\+{2,}|-{2,}|\.{2,}))(?:[.+-]?[a-z0-9])*@gmail\.com$";
@@ -102,14 +84,5 @@ namespace Volleyball_Utility
             }
             return true;
         }
-
-        private void SharedAppPwdTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                VerifyUserEmailButton_Click(this, new EventArgs());
-            }
-        }
-        #endregion
     }
 }

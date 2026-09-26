@@ -39,7 +39,7 @@ namespace Volleyball_Utility
             DialogResult result;
             if (SetupRequired()) //complete setup and then start proper application
             {
-                using (var setupForm = new Setup())
+                using (var setupForm = new SetupForm())
                     result = setupForm.ShowDialog(); //program pauses here 
                 if (result != DialogResult.OK) return;
             }

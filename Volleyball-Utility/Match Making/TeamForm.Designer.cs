@@ -1,6 +1,6 @@
-﻿namespace Volleyball_Utility.Match_Making
+﻿namespace Volleyball_Utility
 {
-    partial class MatchMakingForm
+    partial class TeamForm
     {
         /// <summary>
         /// Required designer variable.
