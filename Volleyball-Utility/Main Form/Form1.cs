@@ -10,7 +10,6 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Volleyball_Utility.Match_Making;
 
 namespace Volleyball_Utility
 {
@@ -25,29 +24,6 @@ namespace Volleyball_Utility
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Volleyball Utility Tool";
-        }
-
-        private void courtScrambleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var teamForm = new TeamForm(names);
-            teamForm.Show();
-        }
-
-        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result;
-            result = MessageBox.Show("Are you sure you want to commit this session data?",
-                "Warning!",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.OK)
-            {
-                if (SendEmail())
-                {
-                    MessageBox.Show("Email successfully sent to secretary", "Success!");
-                }
-            }
         }
 
         private void AcceptNameButton_Click(object sender, EventArgs e)
@@ -95,6 +71,29 @@ namespace Volleyball_Utility
                 "Success!",
                 MessageBoxButtons.OK
                 );
+        }
+
+        private void emailToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result;
+            result = MessageBox.Show("Are you sure you want to commit this session data?",
+                "Warning!",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                if (SendEmail())
+                {
+                    MessageBox.Show("Email successfully sent to secretary", "Success!");
+                }
+            }
+        }
+
+        private void courtScrambleToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var teamForm = new TeamForm(names);
+            teamForm.Show();
         }
     }
 }

@@ -30,23 +30,23 @@
         {
             this.NameInputTextBox = new System.Windows.Forms.TextBox();
             this.AcceptNameButton = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.courtScrambleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.TeamPlayerCheckBox = new System.Windows.Forms.CheckBox();
             this.NotTeamPlayerCheckBox = new System.Windows.Forms.CheckBox();
-            this.menuStrip1.SuspendLayout();
+            this.optionsMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.courtScrambleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // NameInputTextBox
             // 
             this.NameInputTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.NameInputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameInputTextBox.Location = new System.Drawing.Point(238, 223);
+            this.NameInputTextBox.Location = new System.Drawing.Point(206, 201);
             this.NameInputTextBox.Name = "NameInputTextBox";
-            this.NameInputTextBox.Size = new System.Drawing.Size(326, 47);
+            this.NameInputTextBox.Size = new System.Drawing.Size(362, 47);
             this.NameInputTextBox.TabIndex = 0;
             this.NameInputTextBox.TabStop = false;
             this.NameInputTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -54,23 +54,59 @@
             // 
             // AcceptNameButton
             // 
-            this.AcceptNameButton.Location = new System.Drawing.Point(303, 299);
+            this.AcceptNameButton.Location = new System.Drawing.Point(257, 308);
             this.AcceptNameButton.Name = "AcceptNameButton";
-            this.AcceptNameButton.Size = new System.Drawing.Size(194, 45);
+            this.AcceptNameButton.Size = new System.Drawing.Size(256, 70);
             this.AcceptNameButton.TabIndex = 1;
             this.AcceptNameButton.Text = "Enter";
             this.AcceptNameButton.UseVisualStyleBackColor = true;
             this.AcceptNameButton.Click += new System.EventHandler(this.AcceptNameButton_Click);
             // 
-            // menuStrip1
+            // label1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(83, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(593, 73);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Attendance Tracker";
+            // 
+            // TeamPlayerCheckBox
+            // 
+            this.TeamPlayerCheckBox.AutoSize = true;
+            this.TeamPlayerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TeamPlayerCheckBox.Location = new System.Drawing.Point(206, 254);
+            this.TeamPlayerCheckBox.Name = "TeamPlayerCheckBox";
+            this.TeamPlayerCheckBox.Size = new System.Drawing.Size(110, 22);
+            this.TeamPlayerCheckBox.TabIndex = 4;
+            this.TeamPlayerCheckBox.Text = "Team Player";
+            this.TeamPlayerCheckBox.UseVisualStyleBackColor = true;
+            this.TeamPlayerCheckBox.CheckedChanged += new System.EventHandler(this.TeamPlayerCheckBox_CheckedChanged);
+            this.TeamPlayerCheckBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeamPlayerCheckBox_KeyDown);
+            // 
+            // NotTeamPlayerCheckBox
+            // 
+            this.NotTeamPlayerCheckBox.AutoSize = true;
+            this.NotTeamPlayerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotTeamPlayerCheckBox.Location = new System.Drawing.Point(430, 254);
+            this.NotTeamPlayerCheckBox.Name = "NotTeamPlayerCheckBox";
+            this.NotTeamPlayerCheckBox.Size = new System.Drawing.Size(138, 22);
+            this.NotTeamPlayerCheckBox.TabIndex = 5;
+            this.NotTeamPlayerCheckBox.Text = "Not Team Player";
+            this.NotTeamPlayerCheckBox.UseVisualStyleBackColor = true;
+            this.NotTeamPlayerCheckBox.CheckedChanged += new System.EventHandler(this.NotTeamPlayerCheckBox_CheckedChanged);
+            this.NotTeamPlayerCheckBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NotTeamPlayerCheckBox_KeyDown);
+            // 
+            // optionsMenuStrip
+            // 
+            this.optionsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.optionsMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.optionsMenuStrip.Name = "optionsMenuStrip";
+            this.optionsMenuStrip.Size = new System.Drawing.Size(800, 24);
+            this.optionsMenuStrip.TabIndex = 6;
+            this.optionsMenuStrip.Text = "Options";
             // 
             // optionsToolStripMenuItem
             // 
@@ -84,52 +120,16 @@
             // emailToolStripMenuItem
             // 
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.emailToolStripMenuItem.Text = "Email";
-            this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
+            this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click_1);
             // 
             // courtScrambleToolStripMenuItem
             // 
             this.courtScrambleToolStripMenuItem.Name = "courtScrambleToolStripMenuItem";
-            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.courtScrambleToolStripMenuItem.Text = "Court Scramble";
-            this.courtScrambleToolStripMenuItem.Click += new System.EventHandler(this.courtScrambleToolStripMenuItem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(111, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(593, 73);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Attendance Tracker";
-            // 
-            // TeamPlayerCheckBox
-            // 
-            this.TeamPlayerCheckBox.AutoSize = true;
-            this.TeamPlayerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TeamPlayerCheckBox.Location = new System.Drawing.Point(187, 299);
-            this.TeamPlayerCheckBox.Name = "TeamPlayerCheckBox";
-            this.TeamPlayerCheckBox.Size = new System.Drawing.Size(110, 22);
-            this.TeamPlayerCheckBox.TabIndex = 4;
-            this.TeamPlayerCheckBox.Text = "Team Player";
-            this.TeamPlayerCheckBox.UseVisualStyleBackColor = true;
-            this.TeamPlayerCheckBox.CheckedChanged += new System.EventHandler(this.TeamPlayerCheckBox_CheckedChanged);
-            this.TeamPlayerCheckBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TeamPlayerCheckBox_KeyDown);
-            // 
-            // NotTeamPlayerCheckBox
-            // 
-            this.NotTeamPlayerCheckBox.AutoSize = true;
-            this.NotTeamPlayerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NotTeamPlayerCheckBox.Location = new System.Drawing.Point(503, 299);
-            this.NotTeamPlayerCheckBox.Name = "NotTeamPlayerCheckBox";
-            this.NotTeamPlayerCheckBox.Size = new System.Drawing.Size(138, 22);
-            this.NotTeamPlayerCheckBox.TabIndex = 5;
-            this.NotTeamPlayerCheckBox.Text = "Not Team Player";
-            this.NotTeamPlayerCheckBox.UseVisualStyleBackColor = true;
-            this.NotTeamPlayerCheckBox.CheckedChanged += new System.EventHandler(this.NotTeamPlayerCheckBox_CheckedChanged);
-            this.NotTeamPlayerCheckBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NotTeamPlayerCheckBox_KeyDown);
+            this.courtScrambleToolStripMenuItem.Click += new System.EventHandler(this.courtScrambleToolStripMenuItem_Click_1);
             // 
             // Form1
             // 
@@ -141,12 +141,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AcceptNameButton);
             this.Controls.Add(this.NameInputTextBox);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.optionsMenuStrip);
+            this.MainMenuStrip = this.optionsMenuStrip;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.optionsMenuStrip.ResumeLayout(false);
+            this.optionsMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,13 +156,13 @@
 
         private System.Windows.Forms.TextBox NameInputTextBox;
         private System.Windows.Forms.Button AcceptNameButton;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem courtScrambleToolStripMenuItem;
         private System.Windows.Forms.CheckBox TeamPlayerCheckBox;
         private System.Windows.Forms.CheckBox NotTeamPlayerCheckBox;
+        private System.Windows.Forms.MenuStrip optionsMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem courtScrambleToolStripMenuItem;
     }
 }
 
