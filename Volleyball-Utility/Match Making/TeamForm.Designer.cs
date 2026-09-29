@@ -59,7 +59,7 @@
             // 
             this.Team1Label.AutoSize = true;
             this.Team1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team1Label.Location = new System.Drawing.Point(90, 124);
+            this.Team1Label.Location = new System.Drawing.Point(40, 123);
             this.Team1Label.Name = "Team1Label";
             this.Team1Label.Size = new System.Drawing.Size(144, 42);
             this.Team1Label.TabIndex = 1;
@@ -89,7 +89,7 @@
             // 
             this.Team4Label.AutoSize = true;
             this.Team4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team4Label.Location = new System.Drawing.Point(1199, 124);
+            this.Team4Label.Location = new System.Drawing.Point(1249, 124);
             this.Team4Label.Name = "Team4Label";
             this.Team4Label.Size = new System.Drawing.Size(144, 42);
             this.Team4Label.TabIndex = 4;
@@ -99,7 +99,7 @@
             // 
             this.Team5Label.AutoSize = true;
             this.Team5Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team5Label.Location = new System.Drawing.Point(269, 410);
+            this.Team5Label.Location = new System.Drawing.Point(243, 410);
             this.Team5Label.Name = "Team5Label";
             this.Team5Label.Size = new System.Drawing.Size(144, 42);
             this.Team5Label.TabIndex = 5;
@@ -119,7 +119,7 @@
             // 
             this.Team7Label.AutoSize = true;
             this.Team7Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team7Label.Location = new System.Drawing.Point(1023, 410);
+            this.Team7Label.Location = new System.Drawing.Point(1046, 410);
             this.Team7Label.Name = "Team7Label";
             this.Team7Label.Size = new System.Drawing.Size(144, 42);
             this.Team7Label.TabIndex = 7;
@@ -128,64 +128,64 @@
             // Team1TextBox
             // 
             this.Team1TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team1TextBox.Location = new System.Drawing.Point(95, 169);
+            this.Team1TextBox.Location = new System.Drawing.Point(12, 168);
             this.Team1TextBox.Multiline = true;
             this.Team1TextBox.Name = "Team1TextBox";
-            this.Team1TextBox.Size = new System.Drawing.Size(139, 242);
+            this.Team1TextBox.Size = new System.Drawing.Size(208, 242);
             this.Team1TextBox.TabIndex = 8;
             // 
             // Team2TextBox
             // 
             this.Team2TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team2TextBox.Location = new System.Drawing.Point(456, 169);
+            this.Team2TextBox.Location = new System.Drawing.Point(421, 168);
             this.Team2TextBox.Multiline = true;
             this.Team2TextBox.Name = "Team2TextBox";
-            this.Team2TextBox.Size = new System.Drawing.Size(139, 242);
+            this.Team2TextBox.Size = new System.Drawing.Size(208, 242);
             this.Team2TextBox.TabIndex = 9;
             // 
             // Team3TextBox
             // 
             this.Team3TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team3TextBox.Location = new System.Drawing.Point(848, 169);
+            this.Team3TextBox.Location = new System.Drawing.Point(808, 168);
             this.Team3TextBox.Multiline = true;
             this.Team3TextBox.Name = "Team3TextBox";
-            this.Team3TextBox.Size = new System.Drawing.Size(139, 242);
+            this.Team3TextBox.Size = new System.Drawing.Size(208, 242);
             this.Team3TextBox.TabIndex = 10;
             // 
             // Team4TextBox
             // 
             this.Team4TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team4TextBox.Location = new System.Drawing.Point(1204, 169);
+            this.Team4TextBox.Location = new System.Drawing.Point(1208, 169);
             this.Team4TextBox.Multiline = true;
             this.Team4TextBox.Name = "Team4TextBox";
-            this.Team4TextBox.Size = new System.Drawing.Size(139, 242);
+            this.Team4TextBox.Size = new System.Drawing.Size(208, 242);
             this.Team4TextBox.TabIndex = 11;
             // 
             // Team5TextBox
             // 
             this.Team5TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team5TextBox.Location = new System.Drawing.Point(274, 455);
+            this.Team5TextBox.Location = new System.Drawing.Point(211, 455);
             this.Team5TextBox.Multiline = true;
             this.Team5TextBox.Name = "Team5TextBox";
-            this.Team5TextBox.Size = new System.Drawing.Size(139, 242);
+            this.Team5TextBox.Size = new System.Drawing.Size(208, 242);
             this.Team5TextBox.TabIndex = 12;
             // 
             // Team6TextBox
             // 
             this.Team6TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team6TextBox.Location = new System.Drawing.Point(658, 455);
+            this.Team6TextBox.Location = new System.Drawing.Point(619, 455);
             this.Team6TextBox.Multiline = true;
             this.Team6TextBox.Name = "Team6TextBox";
-            this.Team6TextBox.Size = new System.Drawing.Size(139, 242);
+            this.Team6TextBox.Size = new System.Drawing.Size(208, 242);
             this.Team6TextBox.TabIndex = 13;
             // 
             // Team7TextBox
             // 
             this.Team7TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team7TextBox.Location = new System.Drawing.Point(1028, 455);
+            this.Team7TextBox.Location = new System.Drawing.Point(1011, 455);
             this.Team7TextBox.Multiline = true;
             this.Team7TextBox.Name = "Team7TextBox";
-            this.Team7TextBox.Size = new System.Drawing.Size(139, 242);
+            this.Team7TextBox.Size = new System.Drawing.Size(208, 242);
             this.Team7TextBox.TabIndex = 14;
             // 
             // TeamForm
