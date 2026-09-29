@@ -27,6 +27,12 @@ namespace Volleyball_Utility
             LoadLocalBackup();
         }
 
+        private void courtScrambleToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var teamForm = new TeamForm(names);
+            teamForm.Show();
+        }
+
         private void AcceptNameButton_Click(object sender, EventArgs e)
         {
             int playerID = CheckForTeamPlayer();
@@ -95,12 +101,6 @@ namespace Volleyball_Utility
                     }
                 }
             }
-        }
-
-        private void courtScrambleToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            var teamForm = new TeamForm(names);
-            teamForm.Show();
         }
     }
 }
