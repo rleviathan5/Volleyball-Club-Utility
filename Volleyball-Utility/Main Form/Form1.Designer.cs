@@ -30,7 +30,7 @@
         {
             this.NameInputTextBox = new System.Windows.Forms.TextBox();
             this.AcceptNameButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.TeamPlayerCheckBox = new System.Windows.Forms.CheckBox();
             this.NotTeamPlayerCheckBox = new System.Windows.Forms.CheckBox();
             this.optionsMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -62,15 +62,15 @@
             this.AcceptNameButton.UseVisualStyleBackColor = true;
             this.AcceptNameButton.Click += new System.EventHandler(this.AcceptNameButton_Click);
             // 
-            // label1
+            // titleLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(593, 73);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Attendance Tracker";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(83, 96);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(593, 73);
+            this.titleLabel.TabIndex = 3;
+            this.titleLabel.Text = "Attendance Tracker";
             // 
             // TeamPlayerCheckBox
             // 
@@ -120,14 +120,14 @@
             // emailToolStripMenuItem
             // 
             this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.emailToolStripMenuItem.Text = "Email";
             this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click_1);
             // 
             // courtScrambleToolStripMenuItem
             // 
             this.courtScrambleToolStripMenuItem.Name = "courtScrambleToolStripMenuItem";
-            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.courtScrambleToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.courtScrambleToolStripMenuItem.Text = "Court Scramble";
             this.courtScrambleToolStripMenuItem.Click += new System.EventHandler(this.courtScrambleToolStripMenuItem_Click_1);
             // 
@@ -138,13 +138,15 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.NotTeamPlayerCheckBox);
             this.Controls.Add(this.TeamPlayerCheckBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.AcceptNameButton);
             this.Controls.Add(this.NameInputTextBox);
             this.Controls.Add(this.optionsMenuStrip);
             this.MainMenuStrip = this.optionsMenuStrip;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.optionsMenuStrip.ResumeLayout(false);
             this.optionsMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -156,7 +158,7 @@
 
         private System.Windows.Forms.TextBox NameInputTextBox;
         private System.Windows.Forms.Button AcceptNameButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.CheckBox TeamPlayerCheckBox;
         private System.Windows.Forms.CheckBox NotTeamPlayerCheckBox;
         private System.Windows.Forms.MenuStrip optionsMenuStrip;

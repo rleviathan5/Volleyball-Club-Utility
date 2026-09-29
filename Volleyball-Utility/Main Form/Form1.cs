@@ -16,12 +16,14 @@ namespace Volleyball_Utility
     public partial class Form1 : Form
     {
         private Dictionary<string, int> names = new Dictionary<string, int>();
+        private Size originalFormSize;
+        private Dictionary<Control, Rectangle> controlBounds = new Dictionary<Control, Rectangle>();
+        private Dictionary<Control, float> originalFontSizes = new Dictionary<Control, float>();
 
         public Form1()
         {
             InitializeComponent();
             WinAPI.SetPlaceholderText(NameInputTextBox, "Your First Name");
-            this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Volleyball Utility Tool";
             LoadLocalBackup();
@@ -101,6 +103,40 @@ namespace Volleyball_Utility
                     }
                 }
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            originalFormSize = this.Size;
+            foreach (Control ctrl in this.Controls)
+            {
+                controlBounds[ctrl] = ctrl.Bounds;
+                originalFontSizes[ctrl] = ctrl.Font.Size;
+            }
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            float xRatio = (float)this.Width / originalFormSize.Width;
+            float yRatio = (float)this.Height / originalFormSize.Height;
+            float fontRatio = Math.Max(xRatio, yRatio);
+
+            foreach (Control ctrl in this.Controls)
+            {
+                Rectangle original = controlBounds[ctrl];
+                ctrl.SetBounds(
+                    (int)(original.X * xRatio),
+                    (int)(original.Y * yRatio),
+                    (int)(original.Width * xRatio),
+                    (int)(original.Height * yRatio)
+                    );
+
+                float originalFontSize = originalFontSizes[ctrl];
+
+                ctrl.Font = new Font(ctrl.Font.FontFamily, originalFontSize * fontRatio, ctrl.Font.Style);
+            }
+            titleLabel.Left = (this.ClientSize.Width - titleLabel.Width) / 2;
         }
     }
 }

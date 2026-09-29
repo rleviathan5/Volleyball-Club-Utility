@@ -20,7 +20,6 @@ namespace Volleyball_Utility
         public TeamForm(Dictionary<string, int> names)
         {
             InitializeComponent();
-            Team1TextBox.Lines = new string[] {""};
             this.names = names;
             DisplayTeamTextBoxes();
             DisplayTeams(GenerateTeams());
