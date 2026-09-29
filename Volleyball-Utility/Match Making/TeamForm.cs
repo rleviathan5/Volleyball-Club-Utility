@@ -52,15 +52,14 @@ namespace Volleyball_Utility
             }
 
             int[] teamPlayerCount = new int[numberOfTeams];
-            int currentTeam = 0;
 
-            AllocateInitialTeamPlayers(teamPlayers, teams, teamPlayerCount, numberOfTeams, currentTeam);
-            AllocateRemainingPlayers(teamPlayers, nonTeamPlayers, teams, numberOfTeams, currentTeam);
+            AllocateInitialTeamPlayers(teamPlayers, teams, teamPlayerCount, numberOfTeams);
+            AllocateRemainingPlayers(teamPlayers, nonTeamPlayers, teams, numberOfTeams);
             
             return teams;
         }
 
-        private void AllocateInitialTeamPlayers(Queue<string> teamPlayers, List<List<string>> teams, int[] teamPlayerCount, int numberOfTeams, int currentTeam)
+        private void AllocateInitialTeamPlayers(Queue<string> teamPlayers, List<List<string>> teams, int[] teamPlayerCount, int numberOfTeams)
         {
             //-------------------------------
             // ROUND ROBIN ALGORITHM
@@ -68,6 +67,7 @@ namespace Volleyball_Utility
             // to a maximum of 2 per team
             //-------------------------------
 
+            int currentTeam = 0;
             while (teamPlayers.Count > 0)
             {
                 if (teamPlayerCount[currentTeam] < 2)
@@ -102,34 +102,58 @@ namespace Volleyball_Utility
             }
         }
 
-        private void AllocateRemainingPlayers(Queue<string> teamPlayers, Queue<string> nonTeamPlayers, List<List<string>> teams, int numberOfTeams, int currentTeam)
+        private void AllocateRemainingPlayers(Queue<string> teamPlayers, Queue<string> nonTeamPlayers, List<List<string>> teams, int numberOfTeams)
         {
-            //-------------------------
-            // ROUND ROBIN ALGORITHM
-            // STAGE 2: Allocate every 
-            // non team player
-            //-------------------------
-            currentTeam = 0;
-            while (nonTeamPlayers.Count > 0)
-            {
-                teams[currentTeam].Add(nonTeamPlayers.Dequeue());
-                currentTeam++;
+            //-------------------------------------
+            // STAGE 2:
+            // Allocate every team 6 players 
+            // Use non-team players first
+            // Then use team players if not enough
+            //-------------------------------------
 
-                if (currentTeam >= numberOfTeams)
+            int currentTeam = 0;
+            while (nonTeamPlayers.Count > 0 || teamPlayers.Count > 0)
+            {
+                bool allTeamsHaveSix = true;
+                for (int i = 0; i < numberOfTeams; i++)
                 {
-                    currentTeam = 0;
+                    if (teams[i].Count < 6)
+                    {
+                        allTeamsHaveSix = false;
+
+                        if(nonTeamPlayers.Count > 0)
+                        {
+                            teams[i].Add(nonTeamPlayers.Dequeue());
+                        }
+                        else if (teamPlayers.Count > 0)
+                        {
+                            teams[i].Add(teamPlayers.Dequeue());
+                        }
+                    }
+                }
+                if (allTeamsHaveSix)
+                {
+                    break;
                 }
             }
 
-            //-------------------------
-            // ROUND ROBIN ALGORITHM
-            // STAGE 3: Allocate every 
-            // remaining team player
-            //-------------------------
+            //------------------------------
+            // STAGE 3:
+            // All teams now have 6 players
+            // Allocate remaining players
+            //------------------------------
 
-            while (teamPlayers.Count > 0)
+            while (teamPlayers.Count > 0 || nonTeamPlayers.Count > 0)
             {
-                teams[currentTeam].Add(teamPlayers.Dequeue());
+                if (nonTeamPlayers.Count > 0)
+                {
+                    teams[currentTeam].Add(nonTeamPlayers.Dequeue());
+                }
+                else if (teamPlayers.Count > 0)
+                {
+                    teams[currentTeam].Add(teamPlayers.Dequeue());
+                }
+
                 currentTeam++;
 
                 if (currentTeam >= numberOfTeams)
