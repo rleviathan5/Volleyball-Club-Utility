@@ -22,7 +22,10 @@ namespace Volleyball_Utility
             InitializeComponent();
             this.names = names;
             DisplayTeamTextBoxes();
-            DisplayTeams(GenerateTeams());
+            if (names.Count >= 6)
+            {
+                DisplayTeams(GenerateTeams());
+            }
         }
 
         private List<List<string>> GenerateTeams()
@@ -186,7 +189,12 @@ namespace Volleyball_Utility
 
         private void DisplayTeamTextBoxes()
         {
-            int numberOfTeams = names.Count / 6; //drops the remainder
+            int numberOfTeams = 0;
+            if (names.Count >= 6)
+            {
+                numberOfTeams = names.Count / 6; //drops the remainder
+            }
+
             TextBox[] teamTextBoxes =
             {
                 Team1TextBox,
