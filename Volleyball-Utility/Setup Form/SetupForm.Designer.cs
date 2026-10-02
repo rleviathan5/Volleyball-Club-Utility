@@ -96,7 +96,7 @@
             this.Controls.Add(this.SecretaryNoTextBox);
             this.Controls.Add(this.GmailTextBox);
             this.Name = "SetupForm";
-            this.Text = "Email";
+            this.Text = "Setup";
             this.Load += new System.EventHandler(this.SetupForm_Load);
             this.Resize += new System.EventHandler(this.SetupForm_Resize);
             this.ResumeLayout(false);
