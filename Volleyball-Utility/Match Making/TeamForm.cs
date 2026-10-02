@@ -182,9 +182,25 @@ namespace Volleyball_Utility
             {
                 if (i < teams.Count)
                 {
-                    teamTextBoxes[i].Text = string.Join(Environment.NewLine, teams[i]);
+                    var formattedNames = teams[i].Select(FormatNames);
+                    teamTextBoxes[i].Text = string.Join(Environment.NewLine, formattedNames);
                 }
             }
+        }
+
+        private string FormatNames(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return name;
+
+            string[] parts = name.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            string firstName = char.ToUpper(parts[0][0]) + parts[0].Substring(1).ToLower(); // ⣴⣾⣿⣿⣿⣿⣷⣦
+            if (parts.Length > 1)                                                           // ⣿⣿⣿⣿⣿⣿⣿⣿
+            {                                                                               // ⡟⠛⠽⣿⣿⠯⠛⢻
+                char secondInitial = char.ToUpper(parts[1][0]);                             // ⣧⣀⣀⡾⢷⣀⣀⣼
+                return $"{firstName} {secondInitial}.";                                     //  ⡏⢽⢴⡦⡯⢹   
+            }                                                                               //  ⠙⢮⣙⣋⡵⠋ 
+            return firstName;                                                               //    ⠉⠉
         }
 
         private void DisplayTeamTextBoxes()
