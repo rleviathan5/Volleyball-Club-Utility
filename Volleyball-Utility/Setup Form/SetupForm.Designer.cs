@@ -31,7 +31,7 @@
             this.GmailTextBox = new System.Windows.Forms.TextBox();
             this.SecretaryNoTextBox = new System.Windows.Forms.TextBox();
             this.VerifyUserInputButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.SharedAppPwdTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -65,15 +65,15 @@
             this.VerifyUserInputButton.UseVisualStyleBackColor = true;
             this.VerifyUserInputButton.Click += new System.EventHandler(this.VerifyUserEmailButton_Click);
             // 
-            // label1
+            // titleLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(140, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 42);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Setup Details";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(140, 9);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(240, 42);
+            this.titleLabel.TabIndex = 3;
+            this.titleLabel.Text = "Setup Details";
             // 
             // SharedAppPwdTextBox
             // 
@@ -85,18 +85,20 @@
             this.SharedAppPwdTextBox.TabStop = false;
             this.SharedAppPwdTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SharedAppPwdTextBox_KeyDown);
             // 
-            // Setup
+            // SetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 268);
             this.Controls.Add(this.SharedAppPwdTextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.VerifyUserInputButton);
             this.Controls.Add(this.SecretaryNoTextBox);
             this.Controls.Add(this.GmailTextBox);
-            this.Name = "Setup";
+            this.Name = "SetupForm";
             this.Text = "Email";
+            this.Load += new System.EventHandler(this.SetupForm_Load);
+            this.Resize += new System.EventHandler(this.SetupForm_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,7 +109,7 @@
         private System.Windows.Forms.TextBox GmailTextBox;
         private System.Windows.Forms.TextBox SecretaryNoTextBox;
         private System.Windows.Forms.Button VerifyUserInputButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.TextBox SharedAppPwdTextBox;
     }
 }
