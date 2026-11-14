@@ -33,6 +33,11 @@ namespace Volleyball_Utility
         {
             var teamForm = new TeamForm(names);
             teamForm.Show();
+            if (names.Count >= 24) //anything below 4 teams doesn't require a match order
+            {
+                var matchOrderForm = new MatchOrderForm(names);
+                matchOrderForm.Show();
+            }
         }
 
         private void AcceptNameButton_Click(object sender, EventArgs e)

@@ -58,6 +58,12 @@
     <Compile Include="Match Making\TeamForm.Designer.cs">
       <DependentUpon>TeamForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MatchOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatchOrderForm.Designer.cs">
+      <DependentUpon>MatchOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Setup Form\SetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="Match Making\TeamForm.resx">
       <DependentUpon>TeamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatchOrderForm.resx">
+      <DependentUpon>MatchOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setup Form\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
