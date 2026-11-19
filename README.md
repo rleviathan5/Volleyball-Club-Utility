@@ -18,6 +18,7 @@ This tool was made to help track weekly training session attendance in order to 
     <br>
 * (WORK IN PROGRESS) Another form generates the match pairing order
 <br>
+# Prerequisites
 
 # Download/Setup Instructions
 
@@ -27,3 +28,16 @@ These instructions _**should**_ be included in the Committe Handover Book for th
 
 * To get started, click on [this link here](https://github.com/rleviathan5/Volleyball-Club-Utility/releases) (https://github.com/rleviathan5/Volleyball-Club-Utility/releases)
 
+* This will take you to the releases page. You should see a page very similar to the one below.
+
+<p align="center"><img src="Images/Volleyball setup.png" width="500"></p>
+
+*  At the time of writing, version 3 is still being developed and isn't shown in the screenshot above. Unless I have been hit by a bus, you will see "v3" as the latest release when you click on the link
+
+*  In the most recent release (most likely "v3" or above for you), click the ZIP file link as seen below. This will download the ZIP file
+
+* Once you have the file downloaded, extract it to somewhere on your computer/laptop that provides easy access (my recommendation is your Desktop)
+
+* If you see the 'exe' file below, then you are on the right track.
+
+## Step 2
