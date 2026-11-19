@@ -37,13 +37,11 @@ namespace Volleyball_Utility
         private (string subject, string body) ConstructEmail()
         {
             DateTime today = DateTime.Now;
-            string subject = "Volleyball Training " + today; // dd/mm/yyyy time
-            string body = "";
+            int daysSinceMonday = ((int)today.DayOfWeek + 6) % 7;
+            DateTime weekBeginning = today.Date.AddDays(-daysSinceMonday);
 
-            foreach (var item in names)
-            {
-                body = string.Concat(body, item.Key + "\n"); //concatenating every name present at training
-            }
+            string subject = "Volleyball Training - Week Beginning: " + weekBeginning.ToString("dd/MM/yyyy");
+            string body = "";
             body = string.Concat(body, "Number of volleyballers present: ", names.Count);
             return (subject, body);
         }
